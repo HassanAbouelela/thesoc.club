@@ -18,6 +18,14 @@ const nextConfig = {
     sassOptions: {
         includePaths: [path.join(__dirname, "app")]
     },
+    images: {
+        remotePatterns: [
+            {
+                protocol: "https",
+                hostname: "*.googleusercontent.com",
+            },
+        ],
+    },
 };
 
 /** @type {import("@sentry/nextjs").SentryWebpackPluginOptions} */
