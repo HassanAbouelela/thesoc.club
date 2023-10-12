@@ -46,7 +46,7 @@ model User {
 
   // Application fields
   registrationComplete Boolean   @default(false)
-  data                  UserData?
+  data                 UserData?
 }
 
 model VerificationToken {
