@@ -7,6 +7,9 @@ import Loader from "@/app/components/loader";
 import UserAction from "@/app/components/user-action";
 
 
+export const dynamic = "force-dynamic";
+
+
 export default async function User() {
     const session = await getServerSession();
     if (session === null) {
