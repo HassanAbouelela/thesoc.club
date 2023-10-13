@@ -4,26 +4,26 @@
 
 import * as Sentry from "@sentry/nextjs";
 
-const isNetlify = process.env.NETLIFY === "true";
+const isVercel = process.env.VERCEL === "true";
 
 if (process.env.SENTRY_DSN) {
     Sentry.init({
         dsn: process.env.SENTRY_DSN,
         debug: false,
 
-        environment: isNetlify ? "netlify" : "production",
+        environment: isVercel ? "vercel" : "production",
         initialScope: {
             tags: {
-                "netlify": isNetlify,
+                "vercel": isVercel,
                 "branch": process.env.BRANCH,
-                "is_pr": process.env.PULL_REQUEST === "true",
+                "pull": process.env.VERCEL_GIT_PULL_REQUEST_ID,
                 "side": "client",
             },
         },
 
         autoSessionTracking: true,
         sampleRate: 1,
-        tracesSampleRate: isNetlify ? 1 : 0.25,
+        tracesSampleRate: isVercel ? 1 : 0.25,
         replaysSessionSampleRate: 1,
         replaysOnErrorSampleRate: 1.0,
 

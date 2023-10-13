@@ -9,9 +9,9 @@ const nextConfig = {
     reactStrictMode: true,
     productionBrowserSourceMaps: true,
     env: {
-        NETLIFY: process.env.NETLIFY || "false",
-        BRANCH: process.env.BRANCH || "main",
-        PULL_REQUEST: process.env.PULL_REQUEST || "false",
+        VERCEL: process.env.VERCEL || "false",
+        BRANCH: process.env.VERCEL_GIT_COMMIT_REF || "main",
+        VERCEL_GIT_PULL_REQUEST_ID: process.env.VERCEL_GIT_PULL_REQUEST_ID,
         URL: process.env.DEPLOY_URL || process.env.URL || "https://thesoc.club/",
         SENTRY_DSN: process.env.SENTRY_DSN,
     },

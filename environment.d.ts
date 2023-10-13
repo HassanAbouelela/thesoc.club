@@ -8,10 +8,12 @@ declare global {
 
     namespace NodeJS {
         interface ProcessEnv {
-            // Typically set by netlify CI
-            NETLIFY?: BooleanString;
-            BRANCH?: string;
-            PULL_REQUEST?: BooleanString;
+            // Typically set by Vercel CI
+            VERCEL?: BooleanString;
+            VERCEL_GIT_COMMIT_REF?: string;
+            VERCEL_GIT_PULL_REQUEST_ID?: string;
+
+            BRANCH: string;
 
             // Set by external sources. Should default to prod if unset.
             URL: string;
